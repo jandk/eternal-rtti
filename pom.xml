@@ -13,4 +13,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.kichik.pecoff4j</groupId>
+            <artifactId>pecoff4j</artifactId>
+            <version>0.4.1</version>
+        </dependency>
+    </dependencies>
+
 </project>
