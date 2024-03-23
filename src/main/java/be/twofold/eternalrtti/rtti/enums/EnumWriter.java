@@ -1,6 +1,6 @@
 package be.twofold.eternalrtti.rtti.enums;
 
-import be.twofold.eternalrtti.rtti.*;
+import be.twofold.eternalrtti.rtti.base.*;
 import be.twofold.eternalrtti.rtti.enums.model.*;
 
 import java.util.*;
@@ -9,14 +9,15 @@ import java.util.stream.*;
 public final class EnumWriter {
     private final StringBuilder builder = new StringBuilder();
 
-    public void write(List<EnumTypeInfo> types) {
+    public EnumWriter write(List<EnumTypeInfo> types) {
         types.forEach(this::writeEnum);
+        return this;
     }
 
     private void writeEnum(EnumTypeInfo type) {
-        if(!type.flags().isEmpty()){
+        if (!type.flags().isEmpty()) {
             var flags = type.flags().stream()
-                .map(SpecifierFlag::shortName)
+                .map(SpecifierFlagEternal::shortName)
                 .collect(Collectors.joining("|"));
             builder.append("// ").append(flags).append('\n');
         }

@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.rtti.classes.model;
+package be.twofold.eternalrtti.rtti.classes.model.eternal;
 
 import java.nio.*;
 

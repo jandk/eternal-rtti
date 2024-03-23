@@ -1,6 +1,6 @@
 package be.twofold.eternalrtti.rtti.classes;
 
-import be.twofold.eternalrtti.rtti.*;
+import be.twofold.eternalrtti.rtti.base.*;
 import be.twofold.eternalrtti.rtti.classes.model.*;
 
 import java.util.*;
@@ -9,8 +9,9 @@ import java.util.stream.*;
 public final class ClassWriter {
     private final StringBuilder builder = new StringBuilder();
 
-    public void write(List<ClassTypeInfo> types) {
+    public ClassWriter write(List<ClassTypeInfo> types) {
         types.forEach(this::writeClass);
+        return this;
     }
 
     private void writeClass(ClassTypeInfo type) {

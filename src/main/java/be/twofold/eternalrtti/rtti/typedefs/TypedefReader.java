@@ -1,6 +1,7 @@
 package be.twofold.eternalrtti.rtti.typedefs;
 
 import be.twofold.eternalrtti.rtti.typedefs.model.*;
+import be.twofold.eternalrtti.rtti.typedefs.model.eternal.*;
 import be.twofold.eternalrtti.utils.*;
 
 import java.util.*;

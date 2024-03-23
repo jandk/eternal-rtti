@@ -12,7 +12,9 @@ import java.security.*;
 import java.util.*;
 
 public final class Main {
-    private static final String HASH = "7352dc4da0b107939c7d4d1e2c42ea087c566c26e79f8e01270678a0c61f6b39";
+    private static final String HASH_DOOM = "ffd0ba84ad5f296603927a576ac5ce6c683a3a6d8fafc26b50b28db2082abc03";
+    private static final String HASH_ETERNAL = "7352dc4da0b107939c7d4d1e2c42ea087c566c26e79f8e01270678a0c61f6b39";
+
     private static final MessageDigest SHA256;
 
     static {
@@ -37,31 +39,32 @@ public final class Main {
         var buffer = Files.readAllBytes(Path.of(args[0]));
 
         var hash = HexFormat.of().formatHex(SHA256.digest(buffer));
-        if (!hash.equals(HASH)) {
-            System.out.println("Invalid file hash: " + hash + " (expected: " + HASH + ")");
-            return;
+        switch (hash) {
+            case HASH_DOOM -> System.out.println("DOOM 2016 detected");
+            case HASH_ETERNAL -> System.out.println("DOOM Eternal detected");
+            default -> {
+                System.out.println("Invalid file hash: " + hash + " (expected: " + HASH_DOOM + " or " + HASH_ETERNAL + ")");
+                return;
+            }
         }
 
         var dataSection = args.length == 2 ? Files.readAllBytes(Path.of(args[1])) : null;
 
         var pe = new PeWrapper(readPE(buffer), dataSection);
-        var enums1 = new EnumReader(pe).read(0x243810, 0x281);
-        var enums2 = new EnumReader(pe).read(0x8167b0, 0x5ce);
-        var classes1 = new ClassReader(pe).read(0x2628a0, 0xb3a);
-        var classes2 = new ClassReader(pe).read(0x82b570, 0x244b);
-        // var typedefs1 = new TypedefReader(pe).read(0x2950f0, 0x198);
-        // var typedefs2 = new TypedefReader(pe).read(0x8cea90, 0x153);
+        var reader = switch (hash) {
+            case HASH_DOOM -> new DoomReader(pe);
+            case HASH_ETERNAL -> new EternalReader(pe);
+            default -> throw new IllegalStateException("Unexpected value: " + hash);
+        };
 
-        try (var writer = Files.newBufferedWriter(Path.of("idLib.h"))) {
-            var enumWriter = new EnumWriter();
-            enumWriter.write(enums1);
-            enumWriter.write(enums2);
-            writer.write(enumWriter.toString());
+        var enums = reader.readEnums();
+        var classes = reader.readClasses();
 
-            var classWriter = new ClassWriter();
-            classWriter.write(classes1);
-            classWriter.write(classes2);
-            writer.write(classWriter.toString());
+        try (var writer = Files.newBufferedWriter(Path.of("doom-idLib.h"))) {
+            var enumString = new EnumWriter().write(enums).toString();
+            var classString = new ClassWriter().write(classes).toString();
+            writer.write(enumString);
+            writer.write(classString);
         }
     }
 

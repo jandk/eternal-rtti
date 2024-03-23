@@ -1,6 +1,6 @@
-package be.twofold.eternalrtti.rtti.classes;
+package be.twofold.eternalrtti.rtti.classes.model.doom;
 
-import be.twofold.eternalrtti.rtti.*;
+import be.twofold.eternalrtti.rtti.base.*;
 import be.twofold.eternalrtti.rtti.classes.model.*;
 import be.twofold.eternalrtti.utils.*;
 
@@ -73,7 +73,7 @@ public final class ClassReader {
         var type = pe.getCString(raw.type());
         var ops = pe.getCString(raw.ops());
         var name = pe.getCString(raw.name());
-        var flags = SpecifierFlag.fromValue(raw.flags());
+        var flags = SpecifierFlagDoom.fromValue(raw.flags());
         var comment = pe.getCString(raw.comment());
 
         return new ClassVariableInfo(type, ops, name, raw.offset(), raw.size(), flags, comment);

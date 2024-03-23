@@ -1,6 +1,6 @@
 package be.twofold.eternalrtti.rtti.classes.model;
 
-import be.twofold.eternalrtti.rtti.*;
+import be.twofold.eternalrtti.rtti.base.*;
 
 import java.util.*;
 
@@ -10,7 +10,7 @@ public record ClassVariableInfo(
     String name,
     int offset,
     int size,
-    Set<SpecifierFlag> flags,
+    Set<? extends SpecifierFlag> flags,
     String comment
 ) {
 }

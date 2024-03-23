@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.rtti.typedefs.model;
+package be.twofold.eternalrtti.rtti.typedefs.model.eternal;
 
 import java.nio.ByteBuffer;
 

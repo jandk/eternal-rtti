@@ -15,7 +15,7 @@ public final class PeWrapper {
     public PeWrapper(PE pe, byte[] dataSection) {
         var sectionTable = pe.getSectionTable();
 
-        /*0x00007ff6dbda0000L*/
+        // 0x7ff6da360000L
         rdataBuffer = ByteBuffer.wrap(sectionTable.findSection(".rdata").getData()).order(ByteOrder.LITTLE_ENDIAN);
         rdataSectionOffset = pe.getOptionalHeader().getImageBase() + sectionTable.findHeader(".rdata").getVirtualAddress();
 
@@ -28,23 +28,19 @@ public final class PeWrapper {
     }
 
     public ByteBuffer getBuffer(long offset) {
-        if (offset < dataSectionOffset) {
-            return rdataBuffer.position((int) (offset - rdataSectionOffset));
-        }
-
-        return dataBuffer.position((int) (offset - dataSectionOffset));
+        return getBufferOptional(offset).orElseThrow(
+            () -> new IllegalArgumentException("Offset out of bounds: " + offset)
+        );
     }
 
     public Optional<ByteBuffer> getBufferOptional(long offset) {
-        if (offset < dataSectionOffset) {
+        if (offset > dataSectionOffset && offset < dataSectionOffset + dataBuffer.capacity()) {
+            return Optional.of(dataBuffer.position((int) (offset - dataSectionOffset)));
+        }
+        if (offset > rdataSectionOffset && offset < rdataSectionOffset + rdataBuffer.capacity()) {
             return Optional.of(rdataBuffer.position((int) (offset - rdataSectionOffset)));
         }
-
-        var position = (int) (offset - dataSectionOffset);
-        if (position >= dataBuffer.capacity()) {
-            return Optional.empty();
-        }
-        return Optional.of(dataBuffer.position(position));
+        return Optional.empty();
     }
 
     public ByteBuffer getDataBuffer(int offset) {

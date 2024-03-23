@@ -1,8 +1,8 @@
-package be.twofold.eternalrtti.rtti;
+package be.twofold.eternalrtti.rtti.base;
 
 import java.util.*;
 
-public enum SpecifierFlag {
+public enum SpecifierFlagEternal implements SpecifierFlag {
     SPECIFIERFLAG_CONST(0x1L),
     SPECIFIERFLAG_VOLATILE(0x2L),
     SPECIFIERFLAG_AUTO(0x4L),
@@ -38,7 +38,7 @@ public enum SpecifierFlag {
 
     private final long value;
 
-    SpecifierFlag(long value) {
+    SpecifierFlagEternal(long value) {
         this.value = value;
     }
 
@@ -46,8 +46,8 @@ public enum SpecifierFlag {
         return name().substring("SPECIFIERFLAG_".length());
     }
 
-    public static Set<SpecifierFlag> fromValue(long value) {
-        Set<SpecifierFlag> flags = EnumSet.noneOf(SpecifierFlag.class);
+    public static Set<SpecifierFlagEternal> fromValue(long value) {
+        Set<SpecifierFlagEternal> flags = EnumSet.noneOf(SpecifierFlagEternal.class);
         for (var flag : values()) {
             if ((value & flag.value) == flag.value) {
                 flags.add(flag);

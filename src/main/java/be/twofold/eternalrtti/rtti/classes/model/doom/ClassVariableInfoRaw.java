@@ -1,6 +1,6 @@
-package be.twofold.eternalrtti.rtti.classes.model;
+package be.twofold.eternalrtti.rtti.classes.model.doom;
 
-import java.nio.ByteBuffer;
+import java.nio.*;
 
 public record ClassVariableInfoRaw(
     long type,
@@ -8,7 +8,7 @@ public record ClassVariableInfoRaw(
     long name,
     int offset,
     int size,
-    long flags,
+    int flags,
     long comment,
     long get,
     long set,
@@ -20,7 +20,8 @@ public record ClassVariableInfoRaw(
         var name = buffer.getLong();
         var offset = buffer.getInt();
         var size = buffer.getInt();
-        var flags = buffer.getLong();
+        var flags = buffer.getInt();
+        buffer.getInt(); // padding
         var comment = buffer.getLong();
         var get = buffer.getLong();
         var set = buffer.getLong();

@@ -1,6 +1,6 @@
-package be.twofold.eternalrtti.rtti.enums;
+package be.twofold.eternalrtti.rtti.enums.model.eternal;
 
-import be.twofold.eternalrtti.rtti.*;
+import be.twofold.eternalrtti.rtti.base.*;
 import be.twofold.eternalrtti.rtti.enums.model.*;
 import be.twofold.eternalrtti.utils.*;
 
@@ -27,7 +27,7 @@ public final class EnumReader {
 
     private EnumTypeInfo map(EnumTypeInfoRaw raw) {
         var name = pe.getCString(raw.name());
-        var flags = SpecifierFlag.fromValue(raw.flags());
+        var flags = SpecifierFlagEternal.fromValue(raw.flags());
         var type = EnumType.fromValue(raw.type());
         var values = readValues(raw);
         return new EnumTypeInfo(name, flags, type, values);

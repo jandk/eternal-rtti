@@ -1,12 +1,12 @@
 package be.twofold.eternalrtti.rtti.enums.model;
 
-import be.twofold.eternalrtti.rtti.*;
+import be.twofold.eternalrtti.rtti.base.*;
 
 import java.util.*;
 
 public record EnumTypeInfo(
     String name,
-    Set<SpecifierFlag> flags,
+    Set<SpecifierFlagEternal> flags,
     EnumType type,
     List<EnumValueInfo> values
 ) {
