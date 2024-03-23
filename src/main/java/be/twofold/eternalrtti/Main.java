@@ -1,7 +1,9 @@
 package be.twofold.eternalrtti;
 
 import be.twofold.eternalrtti.rtti.classes.*;
+import be.twofold.eternalrtti.rtti.constants.*;
 import be.twofold.eternalrtti.rtti.enums.*;
+import be.twofold.eternalrtti.rtti.typedefs.*;
 import be.twofold.eternalrtti.utils.*;
 import com.kichik.pecoff4j.*;
 import com.kichik.pecoff4j.io.*;
@@ -57,14 +59,20 @@ public final class Main {
             default -> throw new IllegalStateException("Unexpected value: " + hash);
         };
 
+        var constants = reader.readConstants();
         var enums = reader.readEnums();
         var classes = reader.readClasses();
+        var typedefs = reader.readTypedefs();
 
         try (var writer = Files.newBufferedWriter(Path.of("doom-idLib.h"))) {
-            var enumString = new EnumWriter().write(enums).toString();
-            var classString = new ClassWriter().write(classes).toString();
-            writer.write(enumString);
-            writer.write(classString);
+            writer.write(new ConstantWriter().write(constants).toString());
+            writer.write('\n');
+            writer.write(new EnumWriter().write(enums).toString());
+            writer.write('\n');
+            writer.write(new ClassWriter().write(classes).toString());
+            writer.write('\n');
+            writer.write(new TypedefWriter().write(typedefs).toString());
+            writer.write('\n');
         }
     }
 

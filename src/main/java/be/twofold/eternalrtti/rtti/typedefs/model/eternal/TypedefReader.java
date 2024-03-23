@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.rtti.typedefs;
+package be.twofold.eternalrtti.rtti.typedefs.model.eternal;
 
 import be.twofold.eternalrtti.rtti.typedefs.model.*;
 import be.twofold.eternalrtti.rtti.typedefs.model.eternal.*;

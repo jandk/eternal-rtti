@@ -2,10 +2,11 @@ package be.twofold.eternalrtti;
 
 import be.twofold.eternalrtti.rtti.classes.model.*;
 import be.twofold.eternalrtti.rtti.classes.model.eternal.*;
+import be.twofold.eternalrtti.rtti.constants.model.*;
 import be.twofold.eternalrtti.rtti.enums.model.*;
 import be.twofold.eternalrtti.rtti.enums.model.eternal.*;
-import be.twofold.eternalrtti.rtti.typedefs.*;
 import be.twofold.eternalrtti.rtti.typedefs.model.*;
+import be.twofold.eternalrtti.rtti.typedefs.model.eternal.*;
 import be.twofold.eternalrtti.utils.*;
 
 import java.util.*;
@@ -15,6 +16,11 @@ final class EternalReader implements RTTIReader {
 
     EternalReader(PeWrapper pe) {
         this.pe = Objects.requireNonNull(pe);
+    }
+
+    @Override
+    public List<ConstantInfo> readConstants() {
+        return List.of();
     }
 
     @Override

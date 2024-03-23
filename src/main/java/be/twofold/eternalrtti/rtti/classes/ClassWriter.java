@@ -21,16 +21,16 @@ public final class ClassWriter {
                 builder.append("//  ").append(metaDatum).append('\n');
             }
         }
+        if (type.size() != -1) {
+            builder.append("// Size: ");
+            appendHex(type.size());
+            builder.append('\n');
+        }
         builder.append("struct __cppobj ").append(type.name());
         if (!type.superType().isEmpty()) {
             builder.append(" : ").append(type.superType());
         }
 
-        if (type.size() != -1) {
-            builder.append(" /* Size: ");
-            appendHex(type.size());
-            builder.append(" */");
-        }
         builder.append(" {\n");
 
         type.variables().forEach(this::writeVariable);
@@ -41,8 +41,10 @@ public final class ClassWriter {
     private void writeVariable(ClassVariableInfo variable) {
         builder.append("    // ").append("Offset: ");
         appendHex(variable.offset());
-        builder.append(", Size: ");
-        appendHex(variable.size());
+        if (variable.size() != -1) {
+            builder.append(", Size: ");
+            appendHex(variable.size());
+        }
         builder.append('\n');
         if (!variable.flags().isEmpty()) {
             var flags = variable.flags().stream()

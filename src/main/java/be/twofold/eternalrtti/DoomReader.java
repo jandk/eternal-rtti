@@ -2,10 +2,12 @@ package be.twofold.eternalrtti;
 
 import be.twofold.eternalrtti.rtti.classes.model.*;
 import be.twofold.eternalrtti.rtti.classes.model.doom.*;
+import be.twofold.eternalrtti.rtti.constants.model.*;
+import be.twofold.eternalrtti.rtti.constants.model.doom.*;
 import be.twofold.eternalrtti.rtti.enums.model.*;
 import be.twofold.eternalrtti.rtti.enums.model.doom.*;
-import be.twofold.eternalrtti.rtti.typedefs.*;
 import be.twofold.eternalrtti.rtti.typedefs.model.*;
+import be.twofold.eternalrtti.rtti.typedefs.model.doom.*;
 import be.twofold.eternalrtti.utils.*;
 
 import java.util.*;
@@ -15,6 +17,11 @@ final class DoomReader implements RTTIReader {
 
     DoomReader(PeWrapper pe) {
         this.pe = Objects.requireNonNull(pe);
+    }
+
+    @Override
+    public List<ConstantInfo> readConstants() {
+        return new ConstantReader(pe).read(0x779b50, 0x41c7);
     }
 
     @Override
@@ -29,12 +36,6 @@ final class DoomReader implements RTTIReader {
 
     @Override
     public List<TypedefInfo> readTypedefs() {
-        var typedefs1 = new TypedefReader(pe).read(0x2950f0, 0x198);
-        var typedefs2 = new TypedefReader(pe).read(0x8cea90, 0x153);
-
-        var typedefs = new ArrayList<TypedefInfo>();
-        typedefs.addAll(typedefs1);
-        typedefs.addAll(typedefs2);
-        return List.copyOf(typedefs);
+        return new TypedefReader(pe).read(0x8b53a0, 0x1eb);
     }
 }

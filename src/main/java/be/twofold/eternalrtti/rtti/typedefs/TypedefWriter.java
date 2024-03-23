@@ -7,8 +7,9 @@ import java.util.*;
 public final class TypedefWriter {
     private final StringBuilder builder = new StringBuilder();
 
-    public void write(List<TypedefInfo> types) {
+    public TypedefWriter write(List<TypedefInfo> types) {
         types.forEach(this::writeTypedef);
+        return this;
     }
 
     private void writeTypedef(TypedefInfo type) {
