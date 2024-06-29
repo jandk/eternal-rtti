@@ -16,6 +16,7 @@ import java.util.*;
 public final class Main {
     private static final String HASH_DOOM = "ffd0ba84ad5f296603927a576ac5ce6c683a3a6d8fafc26b50b28db2082abc03";
     private static final String HASH_ETERNAL = "7352dc4da0b107939c7d4d1e2c42ea087c566c26e79f8e01270678a0c61f6b39";
+    private static final String HASH_NEW_COLOSSUS = "abbee4822d7385cfae791d7be1e55c83f3d6c9965023afb85482351519bbe890";
 
     private static final MessageDigest SHA256;
 
@@ -44,6 +45,7 @@ public final class Main {
         switch (hash) {
             case HASH_DOOM -> System.out.println("DOOM 2016 detected");
             case HASH_ETERNAL -> System.out.println("DOOM Eternal detected");
+            case HASH_NEW_COLOSSUS -> System.out.println("Wolfenstein II: The New Colossus detected");
             default -> {
                 System.out.println("Invalid file hash: " + hash + " (expected: " + HASH_DOOM + " or " + HASH_ETERNAL + ")");
                 return;
@@ -56,6 +58,7 @@ public final class Main {
         var reader = switch (hash) {
             case HASH_DOOM -> new DoomReader(pe);
             case HASH_ETERNAL -> new EternalReader(pe);
+            case HASH_NEW_COLOSSUS -> new NewColossusReader(pe);
             default -> throw new IllegalStateException("Unexpected value: " + hash);
         };
 
@@ -64,7 +67,7 @@ public final class Main {
         var classes = reader.readClasses();
         var typedefs = reader.readTypedefs();
 
-        try (var writer = Files.newBufferedWriter(Path.of("doom-idLib.h"))) {
+        try (var writer = Files.newBufferedWriter(Path.of("colossus-idLib.h"))) {
             writer.write(new ConstantWriter().write(constants).toString());
             writer.write('\n');
             writer.write(new EnumWriter().write(enums).toString());

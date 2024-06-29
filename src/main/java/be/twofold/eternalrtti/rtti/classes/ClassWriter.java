@@ -55,9 +55,15 @@ public final class ClassWriter {
         if (!variable.comment().isEmpty()) {
             builder.append("    // ").append(variable.comment()).append('\n');
         }
+        String ops = variable.ops();
+        String arr = "";
+        if(ops.matches("\\[\\d+]")){
+            arr = ops;
+            ops = "";
+        }
         builder.append("    ")
-            .append(variable.type()).append(variable.ops()).append(' ')
-            .append(variable.name()).append(";\n");
+            .append(variable.type()).append(ops).append(' ')
+            .append(variable.name()).append(arr).append(";\n");
     }
 
     private void appendHex(int n) {

@@ -47,6 +47,10 @@ public final class PeWrapper {
         return dataBuffer.position(offset);
     }
 
+    public ByteBuffer getRDataBuffer(int offset) {
+        return rdataBuffer.position(offset);
+    }
+
     public String getCString(long offset) {
         if (offset == 0) {
             return "";
