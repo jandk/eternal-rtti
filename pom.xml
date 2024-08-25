@@ -6,6 +6,12 @@
     <groupId>be.twofold</groupId>
     <artifactId>eternal-rtti</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>eternal-rtti-app</module>
+        <module>eternal-rtti-common</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
@@ -13,11 +19,21 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencyManagement>
+        <!-- External -->
+        <dependencies>
+            <dependency>
+                <groupId>com.kichik.pecoff4j</groupId>
+                <artifactId>pecoff4j</artifactId>
+                <version>0.4.1</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>com.kichik.pecoff4j</groupId>
             <artifactId>pecoff4j</artifactId>
-            <version>0.4.1</version>
         </dependency>
     </dependencies>
 
