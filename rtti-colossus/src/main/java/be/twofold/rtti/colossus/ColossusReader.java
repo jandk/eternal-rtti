@@ -14,8 +14,6 @@ import be.twofold.rtti.common.utils.*;
 import java.util.*;
 
 public final class ColossusReader implements RTTIReader {
-    private static final long RDATA = 0x141E641B8L;
-
     private final PeWrapper pe;
 
     public ColossusReader(PeWrapper pe) {

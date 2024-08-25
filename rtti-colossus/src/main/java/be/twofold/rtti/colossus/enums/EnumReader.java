@@ -38,7 +38,7 @@ public final class EnumReader {
         }
 
         return pe.getBufferOptional(type.values())
-            .map(byteBuffer -> readEnumValues(byteBuffer))
+            .map(this::readEnumValues)
             .orElseGet(List::of);
     }
 
