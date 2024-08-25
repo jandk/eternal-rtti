@@ -12,9 +12,9 @@ public final class ConstantReader {
         this.pe = pe;
     }
 
-    public List<ConstantInfo> read(int offset, int count) {
+    public List<ConstantInfo> read(long offset, int count) {
         var types = BufferUtils.readStructs(
-            pe.getDataBuffer(offset),
+            pe.getBuffer(offset),
             count - 1,
             ConstantInfoRaw::read
         );

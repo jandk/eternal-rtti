@@ -14,9 +14,9 @@ public final class ClassReader {
         this.pe = pe;
     }
 
-    public List<ClassTypeInfo> read(int offset, int count) {
+    public List<ClassTypeInfo> read(long offset, int count) {
         var types = BufferUtils.readStructs(
-            pe.getDataBuffer(offset),
+            pe.getBuffer(offset),
             count - 1,
             ClassTypeInfoRaw::read
         );
