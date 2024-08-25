@@ -10,4 +10,11 @@
 
     <artifactId>eternal-rtti-app</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>be.twofold</groupId>
+            <artifactId>rtti-common</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

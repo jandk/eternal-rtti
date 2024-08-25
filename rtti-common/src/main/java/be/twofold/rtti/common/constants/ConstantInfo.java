@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.rtti.constants.model;
+package be.twofold.rtti.common.constants;
 
 public record ConstantInfo(
     String type,

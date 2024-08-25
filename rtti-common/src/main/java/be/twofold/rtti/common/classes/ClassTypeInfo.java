@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.rtti.classes.model;
+package be.twofold.rtti.common.classes;
 
 import java.util.*;
 

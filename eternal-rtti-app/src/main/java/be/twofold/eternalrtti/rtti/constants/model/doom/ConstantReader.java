@@ -1,7 +1,7 @@
 package be.twofold.eternalrtti.rtti.constants.model.doom;
 
-import be.twofold.eternalrtti.rtti.constants.model.*;
-import be.twofold.eternalrtti.utils.*;
+import be.twofold.rtti.common.constants.*;
+import be.twofold.rtti.common.utils.*;
 
 import java.util.*;
 

@@ -8,6 +8,6 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>eternal-rtti-common</artifactId>
+    <artifactId>rtti-common</artifactId>
 
 </project>

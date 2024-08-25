@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.utils;
+package be.twofold.rtti.common.utils;
 
 import com.kichik.pecoff4j.*;
 

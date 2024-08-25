@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.utils;
+package be.twofold.rtti.common.utils;
 
 import java.nio.*;
 import java.util.*;

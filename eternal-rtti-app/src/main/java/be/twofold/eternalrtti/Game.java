@@ -1,6 +1,7 @@
 package be.twofold.eternalrtti;
 
-import be.twofold.eternalrtti.utils.*;
+import be.twofold.rtti.common.*;
+import be.twofold.rtti.common.utils.*;
 
 import java.util.*;
 import java.util.function.*;

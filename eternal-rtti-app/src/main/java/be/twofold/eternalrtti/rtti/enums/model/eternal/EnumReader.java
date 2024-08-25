@@ -1,8 +1,8 @@
 package be.twofold.eternalrtti.rtti.enums.model.eternal;
 
 import be.twofold.eternalrtti.rtti.base.*;
-import be.twofold.eternalrtti.rtti.enums.model.*;
-import be.twofold.eternalrtti.utils.*;
+import be.twofold.rtti.common.enums.*;
+import be.twofold.rtti.common.utils.*;
 
 import java.util.*;
 
@@ -30,7 +30,7 @@ public final class EnumReader {
         var flags = SpecifierFlagEternal.fromValue(raw.flags());
         var type = EnumType.fromValue(raw.type());
         var values = readValues(raw);
-        return new EnumTypeInfo(name, flags, type, values);
+        return new EnumTypeInfo(name, (Set) flags, type, values);
     }
 
     private List<EnumValueInfo> readValues(EnumTypeInfoRaw type) {

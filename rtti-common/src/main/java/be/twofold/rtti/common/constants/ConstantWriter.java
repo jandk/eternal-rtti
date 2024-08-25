@@ -1,6 +1,4 @@
-package be.twofold.eternalrtti.rtti.constants;
-
-import be.twofold.eternalrtti.rtti.constants.model.*;
+package be.twofold.rtti.common.constants;
 
 import java.util.*;
 

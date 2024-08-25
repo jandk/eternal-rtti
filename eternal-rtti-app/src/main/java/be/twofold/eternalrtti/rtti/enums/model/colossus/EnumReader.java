@@ -1,8 +1,7 @@
 package be.twofold.eternalrtti.rtti.enums.model.colossus;
 
-import be.twofold.eternalrtti.rtti.base.*;
-import be.twofold.eternalrtti.rtti.enums.model.*;
-import be.twofold.eternalrtti.utils.*;
+import be.twofold.rtti.common.enums.*;
+import be.twofold.rtti.common.utils.*;
 
 import java.nio.*;
 import java.util.*;

@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.rtti.enums.model;
+package be.twofold.rtti.common.enums;
 
 public record EnumValueInfo(
     String name,

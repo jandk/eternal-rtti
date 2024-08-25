@@ -1,10 +1,10 @@
 package be.twofold.eternalrtti;
 
-import be.twofold.eternalrtti.rtti.classes.*;
-import be.twofold.eternalrtti.rtti.constants.*;
-import be.twofold.eternalrtti.rtti.enums.*;
-import be.twofold.eternalrtti.rtti.typedefs.*;
-import be.twofold.eternalrtti.utils.*;
+import be.twofold.rtti.common.classes.*;
+import be.twofold.rtti.common.constants.*;
+import be.twofold.rtti.common.enums.*;
+import be.twofold.rtti.common.typedefs.*;
+import be.twofold.rtti.common.utils.*;
 import com.kichik.pecoff4j.*;
 import com.kichik.pecoff4j.io.*;
 

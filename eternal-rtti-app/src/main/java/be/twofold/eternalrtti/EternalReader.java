@@ -1,13 +1,14 @@
 package be.twofold.eternalrtti;
 
-import be.twofold.eternalrtti.rtti.classes.model.*;
 import be.twofold.eternalrtti.rtti.classes.model.eternal.*;
-import be.twofold.eternalrtti.rtti.constants.model.*;
-import be.twofold.eternalrtti.rtti.enums.model.*;
 import be.twofold.eternalrtti.rtti.enums.model.eternal.*;
-import be.twofold.eternalrtti.rtti.typedefs.model.*;
 import be.twofold.eternalrtti.rtti.typedefs.model.eternal.*;
-import be.twofold.eternalrtti.utils.*;
+import be.twofold.rtti.common.*;
+import be.twofold.rtti.common.classes.*;
+import be.twofold.rtti.common.constants.*;
+import be.twofold.rtti.common.enums.*;
+import be.twofold.rtti.common.typedefs.*;
+import be.twofold.rtti.common.utils.*;
 
 import java.util.*;
 

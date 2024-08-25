@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.rtti.base;
+package be.twofold.rtti.common;
 
 public interface SpecifierFlag {
     String name();

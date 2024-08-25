@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.rtti.base;
+package be.twofold.rtti.common.enums;
 
 public enum EnumType {
     ENUM_S8(0, "int8_t"),

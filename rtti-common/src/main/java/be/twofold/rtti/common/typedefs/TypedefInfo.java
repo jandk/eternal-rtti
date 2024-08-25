@@ -1,4 +1,4 @@
-package be.twofold.eternalrtti.rtti.typedefs.model;
+package be.twofold.rtti.common.typedefs;
 
 public record TypedefInfo(
     String name,

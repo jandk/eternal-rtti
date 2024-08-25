@@ -1,5 +1,7 @@
 package be.twofold.eternalrtti.rtti.base;
 
+import be.twofold.rtti.common.*;
+
 import java.util.*;
 
 public enum SpecifierFlagDoom implements SpecifierFlag {

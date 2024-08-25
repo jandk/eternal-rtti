@@ -1,7 +1,6 @@
-package be.twofold.eternalrtti.rtti.classes;
+package be.twofold.rtti.common.classes;
 
-import be.twofold.eternalrtti.rtti.base.*;
-import be.twofold.eternalrtti.rtti.classes.model.*;
+import be.twofold.rtti.common.*;
 
 import java.util.*;
 import java.util.stream.*;

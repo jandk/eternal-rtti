@@ -1,8 +1,8 @@
 package be.twofold.eternalrtti.rtti.classes.model.doom;
 
 import be.twofold.eternalrtti.rtti.base.*;
-import be.twofold.eternalrtti.rtti.classes.model.*;
-import be.twofold.eternalrtti.utils.*;
+import be.twofold.rtti.common.classes.*;
+import be.twofold.rtti.common.utils.*;
 
 import java.util.*;
 import java.util.stream.*;

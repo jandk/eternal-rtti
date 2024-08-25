@@ -10,7 +10,7 @@
 
     <modules>
         <module>eternal-rtti-app</module>
-        <module>eternal-rtti-common</module>
+        <module>rtti-common</module>
     </modules>
 
     <properties>
@@ -20,8 +20,15 @@
     </properties>
 
     <dependencyManagement>
-        <!-- External -->
         <dependencies>
+            <!-- Internal -->
+            <dependency>
+                <groupId>be.twofold</groupId>
+                <artifactId>rtti-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- External -->
             <dependency>
                 <groupId>com.kichik.pecoff4j</groupId>
                 <artifactId>pecoff4j</artifactId>
