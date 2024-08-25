@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>be.twofold</groupId>
-        <artifactId>eternal-rtti</artifactId>
+        <artifactId>rtti</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>eternal-rtti-app</artifactId>
+    <artifactId>rtti-app</artifactId>
 
     <dependencies>
         <dependency>

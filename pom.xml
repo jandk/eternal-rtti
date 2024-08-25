@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>be.twofold</groupId>
-    <artifactId>eternal-rtti</artifactId>
+    <artifactId>rtti</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <modules>
-        <module>eternal-rtti-app</module>
+        <module>rtti-app</module>
         <module>rtti-common</module>
         <module>rtti-eternal</module>
         <module>rtti-doom</module>
