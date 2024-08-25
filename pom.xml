@@ -10,10 +10,11 @@
 
     <modules>
         <module>rtti-app</module>
-        <module>rtti-common</module>
-        <module>rtti-eternal</module>
-        <module>rtti-doom</module>
         <module>rtti-colossus</module>
+        <module>rtti-common</module>
+        <module>rtti-doom</module>
+        <module>rtti-eternal</module>
+        <module>rtti-neworder</module>
     </modules>
 
     <properties>
@@ -43,6 +44,11 @@
             <dependency>
                 <groupId>be.twofold</groupId>
                 <artifactId>rtti-eternal</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.twofold</groupId>
+                <artifactId>rtti-neworder</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
