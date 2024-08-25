@@ -8,24 +8,12 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>eternal-rtti-app</artifactId>
+    <artifactId>rtti-eternal</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>be.twofold</groupId>
             <artifactId>rtti-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>be.twofold</groupId>
-            <artifactId>rtti-colossus</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>be.twofold</groupId>
-            <artifactId>rtti-doom</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>be.twofold</groupId>
-            <artifactId>rtti-eternal</artifactId>
         </dependency>
     </dependencies>
 

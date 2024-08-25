@@ -1,7 +1,10 @@
 package be.twofold.eternalrtti;
 
+import be.twofold.rtti.colossus.*;
 import be.twofold.rtti.common.*;
 import be.twofold.rtti.common.utils.*;
+import be.twofold.rtti.doom.*;
+import be.twofold.rtti.eternal.*;
 
 import java.util.*;
 import java.util.function.*;
@@ -9,7 +12,7 @@ import java.util.function.*;
 public enum Game {
     Doom("ffd0ba84ad5f296603927a576ac5ce6c683a3a6d8fafc26b50b28db2082abc03", DoomReader::new),
     DoomEternal("7352dc4da0b107939c7d4d1e2c42ea087c566c26e79f8e01270678a0c61f6b39", EternalReader::new),
-    NewColossus("abbee4822d7385cfae791d7be1e55c83f3d6c9965023afb85482351519bbe890", NewColossusReader::new);
+    Colossus("abbee4822d7385cfae791d7be1e55c83f3d6c9965023afb85482351519bbe890", ColossusReader::new);
 
     private final String hash;
     private final Function<PeWrapper, RTTIReader> reader;

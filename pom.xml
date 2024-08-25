@@ -11,6 +11,9 @@
     <modules>
         <module>eternal-rtti-app</module>
         <module>rtti-common</module>
+        <module>rtti-eternal</module>
+        <module>rtti-doom</module>
+        <module>rtti-colossus</module>
     </modules>
 
     <properties>
@@ -25,6 +28,21 @@
             <dependency>
                 <groupId>be.twofold</groupId>
                 <artifactId>rtti-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.twofold</groupId>
+                <artifactId>rtti-colossus</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.twofold</groupId>
+                <artifactId>rtti-doom</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.twofold</groupId>
+                <artifactId>rtti-eternal</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
