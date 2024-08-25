@@ -13,9 +13,9 @@ public final class EnumReader {
         this.pe = pe;
     }
 
-    public List<EnumTypeInfo> read(int offset, int count) {
+    public List<EnumTypeInfo> read(long offset, int count) {
         var types = BufferUtils.readStructs(
-            pe.getDataBuffer(offset),
+            pe.getBuffer(offset),
             count - 1,
             EnumTypeInfoRaw::read
         );

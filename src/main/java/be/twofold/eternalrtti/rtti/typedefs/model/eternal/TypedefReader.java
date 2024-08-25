@@ -1,7 +1,6 @@
 package be.twofold.eternalrtti.rtti.typedefs.model.eternal;
 
 import be.twofold.eternalrtti.rtti.typedefs.model.*;
-import be.twofold.eternalrtti.rtti.typedefs.model.eternal.*;
 import be.twofold.eternalrtti.utils.*;
 
 import java.util.*;
@@ -13,9 +12,9 @@ public final class TypedefReader {
         this.pe = pe;
     }
 
-    public List<TypedefInfo> read(int offset, int count) {
+    public List<TypedefInfo> read(long offset, int count) {
         var types = BufferUtils.readStructs(
-            pe.getDataBuffer(offset),
+            pe.getBuffer(offset),
             count - 1,
             TypedefInfoRaw::read
         );
