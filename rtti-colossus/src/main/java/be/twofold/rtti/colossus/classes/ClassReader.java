@@ -1,6 +1,5 @@
 package be.twofold.rtti.colossus.classes;
 
-import be.twofold.rtti.colossus.*;
 import be.twofold.rtti.common.classes.*;
 import be.twofold.rtti.common.utils.*;
 
@@ -73,7 +72,7 @@ public final class ClassReader {
         var type = pe.getCString(raw.type());
         var ops = pe.getCString(raw.ops());
         var name = pe.getCString(raw.name());
-        var flags = SpecifierFlagDoom.fromValue(raw.flags());
+        var flags = SpecifierFlagColossus.fromValue(raw.flags());
         var comment = pe.getCString(raw.comment());
 
         return new ClassVariableInfo(type, ops, name, raw.offset(), raw.size(), flags, comment);

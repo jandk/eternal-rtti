@@ -2,7 +2,6 @@ package be.twofold.rtti.eternal.classes;
 
 import be.twofold.rtti.common.classes.*;
 import be.twofold.rtti.common.utils.*;
-import be.twofold.rtti.eternal.*;
 
 import java.util.*;
 import java.util.stream.*;

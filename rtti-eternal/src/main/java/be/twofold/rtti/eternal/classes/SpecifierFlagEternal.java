@@ -1,4 +1,4 @@
-package be.twofold.rtti.eternal;
+package be.twofold.rtti.eternal.classes;
 
 import be.twofold.rtti.common.*;
 

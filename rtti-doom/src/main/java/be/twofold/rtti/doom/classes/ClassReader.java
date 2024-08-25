@@ -2,7 +2,6 @@ package be.twofold.rtti.doom.classes;
 
 import be.twofold.rtti.common.classes.*;
 import be.twofold.rtti.common.utils.*;
-import be.twofold.rtti.doom.*;
 
 import java.util.*;
 import java.util.stream.*;

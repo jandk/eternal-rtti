@@ -1,4 +1,4 @@
-package be.twofold.rtti.colossus;
+package be.twofold.rtti.doom.classes;
 
 import be.twofold.rtti.common.*;
 

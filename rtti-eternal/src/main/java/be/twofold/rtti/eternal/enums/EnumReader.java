@@ -2,7 +2,7 @@ package be.twofold.rtti.eternal.enums;
 
 import be.twofold.rtti.common.enums.*;
 import be.twofold.rtti.common.utils.*;
-import be.twofold.rtti.eternal.*;
+import be.twofold.rtti.eternal.classes.*;
 
 import java.util.*;
 
