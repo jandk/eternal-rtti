@@ -1,8 +1,8 @@
-package be.twofold.rtti.eternal.enums;
+package be.twofold.rtti.greatcircle.enums;
 
 import be.twofold.rtti.common.enums.*;
 import be.twofold.rtti.common.utils.*;
-import be.twofold.rtti.eternal.classes.*;
+import be.twofold.rtti.greatcircle.classes.*;
 
 import java.util.*;
 
@@ -27,7 +27,7 @@ public final class EnumReader {
 
     private EnumTypeInfo map(EnumTypeInfoRaw raw) {
         var name = pe.getCString(raw.name());
-        var flags = SpecifierFlagEternal.fromValue(raw.flags());
+        var flags = SpecifierFlagGreatCircle.fromValue(raw.flags());
         var type = EnumType.fromValue(raw.type());
         var values = readValues(raw);
         return new EnumTypeInfo(name, (Set) flags, type, values);
@@ -51,6 +51,7 @@ public final class EnumReader {
 
     private EnumValueInfo mapValue(EnumValueInfoRaw raw) {
         var name = pe.getCString(raw.name());
-        return new EnumValueInfo(name, raw.value(), null);
+        var comment = pe.getCString(raw.comment());
+        return new EnumValueInfo(name, raw.value(), comment);
     }
 }

@@ -6,4 +6,5 @@ module be.twofold.rtti.app {
     requires be.twofold.rtti.doom;
     requires be.twofold.rtti.eternal;
     requires be.twofold.rtti.neworder;
+    requires be.twofold.rtti.greatcircle;
 }

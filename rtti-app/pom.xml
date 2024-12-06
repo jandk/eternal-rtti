@@ -29,6 +29,10 @@
         </dependency>
         <dependency>
             <groupId>be.twofold</groupId>
+            <artifactId>rtti-greatcircle</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>be.twofold</groupId>
             <artifactId>rtti-neworder</artifactId>
         </dependency>
     </dependencies>

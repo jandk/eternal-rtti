@@ -14,6 +14,7 @@
         <module>rtti-common</module>
         <module>rtti-doom</module>
         <module>rtti-eternal</module>
+        <module>rtti-greatcircle</module>
         <module>rtti-neworder</module>
     </modules>
 
@@ -44,6 +45,11 @@
             <dependency>
                 <groupId>be.twofold</groupId>
                 <artifactId>rtti-eternal</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.twofold</groupId>
+                <artifactId>rtti-greatcircle</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

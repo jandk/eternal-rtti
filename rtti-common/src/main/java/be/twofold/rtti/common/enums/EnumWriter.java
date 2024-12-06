@@ -30,6 +30,10 @@ public final class EnumWriter {
     }
 
     private void writeEnumValue(EnumValueInfo value) {
+        if (!value.comment().isEmpty()) {
+            builder.append("    // ").append(value.comment()).append('\n');
+        }
+
         builder.append("    ")
             .append(value.name()).append(" = ")
             .append(value.value()).append(",\n");

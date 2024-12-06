@@ -47,6 +47,6 @@ public final class EnumReader {
 
     private EnumValueInfo mapValue(EnumValueInfoRaw raw) {
         var name = pe.getCString(raw.name());
-        return new EnumValueInfo(name, raw.value());
+        return new EnumValueInfo(name, raw.value(), null);
     }
 }

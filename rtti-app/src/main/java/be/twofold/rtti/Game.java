@@ -5,6 +5,7 @@ import be.twofold.rtti.common.*;
 import be.twofold.rtti.common.utils.*;
 import be.twofold.rtti.doom.*;
 import be.twofold.rtti.eternal.*;
+import be.twofold.rtti.greatcircle.*;
 import be.twofold.rtti.neworder.*;
 
 import java.util.*;
@@ -15,6 +16,7 @@ public enum Game {
     Doom("1bddecaa4e86850412f96e3117978bce1ec7bb701ae1b5a33120c21e4421e51e", DoomReader::new),
     DoomVk("3d8b4393649f80bdae85c19ae2c985c45ec9ac54f74ab04a18816e30ead63c21", DoomVkReader::new),
     Eternal("bd4d2c95eaa09124a6c159738caf3dd9f53845e846048ecda02fb1661ae50539", EternalReader::new),
+    GreatCircle("335961c021aeff97e40c1a30569a0c73ee03375ff5a5ff32b55e41f9963808ec", GreatCircleReader::new),
     NewOrder("1dd79eedc2acf388dcc6d33ff7c3793533a22a9d9a652f6e26de0cfac2253896", NewOrderReader::new);
 
     private final String hash;
