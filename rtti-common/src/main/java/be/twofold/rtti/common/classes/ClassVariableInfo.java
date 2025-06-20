@@ -11,6 +11,10 @@ public record ClassVariableInfo(
     int offset,
     int size,
     Set<? extends SpecifierFlag> flags,
-    String comment
+    String comment,
+    long nameHash
 ) {
+    public ClassVariableInfo(String type, String ops, String name, int offset, int size, Set<? extends SpecifierFlag> flags, String comment) {
+        this(type, ops, name, offset, size, flags, comment, 0L);
+    }
 }

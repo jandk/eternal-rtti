@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.stream.*;
 
 public final class EnumWriter {
+    private static final HexFormat HEX_FORMAT = HexFormat.of().withUpperCase();
     private final StringBuilder builder = new StringBuilder();
 
     public EnumWriter write(List<EnumTypeInfo> types) {
@@ -19,6 +20,12 @@ public final class EnumWriter {
                 .map(SpecifierFlag::shortName)
                 .collect(Collectors.joining("|"));
             builder.append("// ").append(flags).append('\n');
+        }
+        if (type.nameHash() != 0) {
+            builder
+                .append("// Hash: 0x")
+                .append(HEX_FORMAT.toHexDigits(type.nameHash()))
+                .append('\n');
         }
         builder.append("enum ")
             .append(type.name()).append(" : ")
@@ -36,7 +43,15 @@ public final class EnumWriter {
 
         builder.append("    ")
             .append(value.name()).append(" = ")
-            .append(value.value()).append(",\n");
+            .append(value.value()).append(',');
+
+        if (value.nameHash() != 0) {
+            builder
+                .append(" // Hash: 0x")
+                .append(HEX_FORMAT.toHexDigits(value.nameHash()));
+        }
+
+        builder.append('\n');
     }
 
     @Override

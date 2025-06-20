@@ -6,6 +6,8 @@ import java.util.*;
 import java.util.stream.*;
 
 public final class ClassWriter {
+    private static final HexFormat HEX_FORMAT = HexFormat.of().withUpperCase();
+
     private final StringBuilder builder = new StringBuilder();
 
     public ClassWriter write(List<ClassTypeInfo> types) {
@@ -23,6 +25,9 @@ public final class ClassWriter {
         if (type.size() != -1) {
             builder.append("// Size: ");
             appendHex(type.size());
+            if (type.nameHash() != 0) {
+                builder.append(", Hash: 0x").append(HEX_FORMAT.toHexDigits(type.nameHash()));
+            }
             builder.append('\n');
         }
         builder.append("struct __cppobj ").append(type.name());
@@ -43,6 +48,9 @@ public final class ClassWriter {
         if (variable.size() != -1) {
             builder.append(", Size: ");
             appendHex(variable.size());
+            if (variable.nameHash() != 0) {
+                builder.append(", Hash: 0x").append(HEX_FORMAT.toHexDigits(variable.nameHash()));
+            }
         }
         builder.append('\n');
         if (!variable.flags().isEmpty()) {
@@ -56,7 +64,7 @@ public final class ClassWriter {
         }
         String ops = variable.ops();
         String arr = "";
-        if(ops.matches("\\[\\d+]")){
+        if (ops.matches("\\[\\d+]")) {
             arr = ops;
             ops = "";
         }
@@ -69,7 +77,7 @@ public final class ClassWriter {
         builder
             .append(n)
             .append(" (0x")
-            .append(Integer.toHexString(n))
+            .append(Integer.toHexString(n).toUpperCase())
             .append(')');
     }
 

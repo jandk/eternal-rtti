@@ -6,25 +6,40 @@ import java.nio.*;
 import java.util.*;
 
 public final class PeWrapper {
-    private final ByteBuffer rdataBuffer;
-    private final long rdataSectionOffset;
+//    private final ByteBuffer rdataBuffer;
+//    private final long rdataSectionOffset;
+//
+//    private final ByteBuffer dataBuffer;
+//    private final long dataSectionOffset;
 
-    private final ByteBuffer dataBuffer;
-    private final long dataSectionOffset;
+    private final List<Segment> segments;
 
     public PeWrapper(PE pe, byte[] dataSection) {
         var sectionTable = pe.getSectionTable();
 
-        // 0x7ff6da360000L
-        rdataBuffer = ByteBuffer.wrap(sectionTable.findSection(".rdata").getData()).order(ByteOrder.LITTLE_ENDIAN);
-        rdataSectionOffset = pe.getOptionalHeader().getImageBase() + sectionTable.findHeader(".rdata").getVirtualAddress();
+        List<Segment> segments = new ArrayList<>();
+        var sections = Set.of(".didata", ".link", ".data", ".rdata");
+        for (int i = 0; i < sectionTable.getNumberOfSections(); i++) {
+            var section = sectionTable.getSection(i);
+            if (!sections.contains(sectionTable.getHeader(i).getName())) {
+                continue;
+            }
 
-        if (dataSection == null) {
-            dataBuffer = ByteBuffer.wrap(sectionTable.findSection(".data").getData()).order(ByteOrder.LITTLE_ENDIAN);
-        } else {
-            dataBuffer = ByteBuffer.wrap(dataSection).order(ByteOrder.LITTLE_ENDIAN);
+            var buffer = ByteBuffer.wrap(section.getData()).order(ByteOrder.LITTLE_ENDIAN);
+            var offset = pe.getOptionalHeader().getImageBase() + sectionTable.getHeader(i).getVirtualAddress();
+            segments.add(new Segment(buffer, offset));
         }
-        dataSectionOffset = pe.getOptionalHeader().getImageBase() + sectionTable.findHeader(".data").getVirtualAddress();
+        this.segments = List.copyOf(segments);
+
+//        rdataBuffer = ByteBuffer.wrap(sectionTable.findSection(".didata").getData()).order(ByteOrder.LITTLE_ENDIAN);
+//        rdataSectionOffset = pe.getOptionalHeader().getImageBase() + sectionTable.findHeader(".didata").getVirtualAddress();
+//
+//        if (dataSection == null) {
+//            dataBuffer = ByteBuffer.wrap(sectionTable.findSection(".data").getData()).order(ByteOrder.LITTLE_ENDIAN);
+//        } else {
+//            dataBuffer = ByteBuffer.wrap(dataSection).order(ByteOrder.LITTLE_ENDIAN);
+//        }
+//        dataSectionOffset = pe.getOptionalHeader().getImageBase() + sectionTable.findHeader(".data").getVirtualAddress();
     }
 
     public ByteBuffer getBuffer(long offset) {
@@ -34,11 +49,10 @@ public final class PeWrapper {
     }
 
     public Optional<ByteBuffer> getBufferOptional(long offset) {
-        if (offset > dataSectionOffset && offset < dataSectionOffset + dataBuffer.capacity()) {
-            return Optional.of(dataBuffer.position((int) (offset - dataSectionOffset)));
-        }
-        if (offset > rdataSectionOffset && offset < rdataSectionOffset + rdataBuffer.capacity()) {
-            return Optional.of(rdataBuffer.position((int) (offset - rdataSectionOffset)));
+        for (Segment segment : segments) {
+            if (offset > segment.offset() && offset < segment.offset() + segment.buffer().capacity()) {
+                return Optional.of(segment.buffer().position(Math.toIntExact(offset - segment.offset())));
+            }
         }
         return Optional.empty();
     }
@@ -60,9 +74,17 @@ public final class PeWrapper {
             if (b == 0) {
                 break;
             }
+            if(builder.length() > 2000){
+                System.out.println("Warning: readCString too long");
+            }
             builder.append((char) b);
         }
         return builder.toString();
     }
 
+    private record Segment(
+        ByteBuffer buffer,
+        long offset
+    ) {
+    }
 }

@@ -7,4 +7,5 @@ module be.twofold.rtti.app {
     requires be.twofold.rtti.eternal;
     requires be.twofold.rtti.neworder;
     requires be.twofold.rtti.greatcircle;
+    requires be.twofold.rtti.darkages;
 }

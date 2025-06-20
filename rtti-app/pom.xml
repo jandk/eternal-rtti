@@ -21,6 +21,10 @@
         </dependency>
         <dependency>
             <groupId>be.twofold</groupId>
+            <artifactId>rtti-darkages</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>be.twofold</groupId>
             <artifactId>rtti-doom</artifactId>
         </dependency>
         <dependency>

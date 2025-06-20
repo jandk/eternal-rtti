@@ -12,6 +12,7 @@
         <module>rtti-app</module>
         <module>rtti-colossus</module>
         <module>rtti-common</module>
+        <module>rtti-darkages</module>
         <module>rtti-doom</module>
         <module>rtti-eternal</module>
         <module>rtti-greatcircle</module>
@@ -35,6 +36,11 @@
             <dependency>
                 <groupId>be.twofold</groupId>
                 <artifactId>rtti-colossus</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>be.twofold</groupId>
+                <artifactId>rtti-darkages</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
