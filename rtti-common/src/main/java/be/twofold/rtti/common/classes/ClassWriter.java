@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.stream.*;
 
 public final class ClassWriter {
-    private static final HexFormat HEX_FORMAT = HexFormat.of().withUpperCase();
+    private static final HexFormat HEX_FORMAT = HexFormat.of();
 
     private final StringBuilder builder = new StringBuilder();
 
@@ -77,7 +77,7 @@ public final class ClassWriter {
         builder
             .append(n)
             .append(" (0x")
-            .append(Integer.toHexString(n).toUpperCase())
+            .append(Integer.toHexString(n))
             .append(')');
     }
 

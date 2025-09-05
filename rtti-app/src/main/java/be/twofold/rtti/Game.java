@@ -18,7 +18,7 @@ public enum Game {
     Doom("1bddecaa4e86850412f96e3117978bce1ec7bb701ae1b5a33120c21e4421e51e", DoomReader::new),
     DoomVk("3d8b4393649f80bdae85c19ae2c985c45ec9ac54f74ab04a18816e30ead63c21", DoomVkReader::new),
     Eternal("005f887a04450ab3f34535be658a711a8fcd3fbb602d07bec19b54ecbf53efa8", EternalReader::new),
-    GreatCircle("11f5a0de39822c977c536c44fb716ed38c750462016c59864153399f891831c9", GreatCircleReader::new),
+    GreatCircle("3d909d1ec8149c65f4734a1219285e3ec2e446bc1425f7e032a50b148ba012b9", GreatCircleReader::new),
     NewOrder("1dd79eedc2acf388dcc6d33ff7c3793533a22a9d9a652f6e26de0cfac2253896", NewOrderReader::new);
 
     private final String hash;

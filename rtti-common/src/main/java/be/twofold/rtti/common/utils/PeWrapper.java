@@ -6,12 +6,6 @@ import java.nio.*;
 import java.util.*;
 
 public final class PeWrapper {
-//    private final ByteBuffer rdataBuffer;
-//    private final long rdataSectionOffset;
-//
-//    private final ByteBuffer dataBuffer;
-//    private final long dataSectionOffset;
-
     private final List<Segment> segments;
 
     public PeWrapper(PE pe, byte[] dataSection) {
@@ -30,16 +24,6 @@ public final class PeWrapper {
             segments.add(new Segment(buffer, offset));
         }
         this.segments = List.copyOf(segments);
-
-//        rdataBuffer = ByteBuffer.wrap(sectionTable.findSection(".didata").getData()).order(ByteOrder.LITTLE_ENDIAN);
-//        rdataSectionOffset = pe.getOptionalHeader().getImageBase() + sectionTable.findHeader(".didata").getVirtualAddress();
-//
-//        if (dataSection == null) {
-//            dataBuffer = ByteBuffer.wrap(sectionTable.findSection(".data").getData()).order(ByteOrder.LITTLE_ENDIAN);
-//        } else {
-//            dataBuffer = ByteBuffer.wrap(dataSection).order(ByteOrder.LITTLE_ENDIAN);
-//        }
-//        dataSectionOffset = pe.getOptionalHeader().getImageBase() + sectionTable.findHeader(".data").getVirtualAddress();
     }
 
     public ByteBuffer getBuffer(long offset) {
