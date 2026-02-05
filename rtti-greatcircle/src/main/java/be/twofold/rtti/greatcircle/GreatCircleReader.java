@@ -26,8 +26,8 @@ public final class GreatCircleReader implements RTTIReader {
 
     @Override
     public List<EnumTypeInfo> readEnums() {
-        var enums1 = new EnumReader(pe).read(0x142FD7250L, 0x2FC);
-        var enums2 = new EnumReader(pe).read(0x14345ADC0L, 0x6CC);
+        var enums1 = new EnumReader(pe).read(0x142FBA910L, 0x2FE);
+        var enums2 = new EnumReader(pe).read(0x14343F690L, 0x6CD);
 
         var enums = new ArrayList<EnumTypeInfo>();
         enums.addAll(enums1);
@@ -37,8 +37,8 @@ public final class GreatCircleReader implements RTTIReader {
 
     @Override
     public List<ClassTypeInfo> readClasses() {
-        var classes1 = new ClassReader(pe).read(0x14300D390L, 0xF89);
-        var classes2 = new ClassReader(pe).read(0x1434BBBC0L, 0x28A8);
+        var classes1 = new ClassReader(pe).read(0x142FF0EF0L, 0x0F8E);
+        var classes2 = new ClassReader(pe).read(0x1434A06C0L, 0x28B1);
 
         var classes = new ArrayList<ClassTypeInfo>();
         classes.addAll(classes1);
@@ -48,8 +48,8 @@ public final class GreatCircleReader implements RTTIReader {
 
     @Override
     public List<TypedefInfo> readTypedefs() {
-        var typedefs1 = new TypedefReader(pe).read(0x143062B30L, 0x24A);
-        var typedefs2 = new TypedefReader(pe).read(0x14359B5D0L, 0x699);
+        var typedefs1 = new TypedefReader(pe).read(0x143046840L, 0x24A);
+        var typedefs2 = new TypedefReader(pe).read(0x1435803F0L, 0x697);
 
         var typedefs = new ArrayList<TypedefInfo>();
         typedefs.addAll(typedefs1);
