@@ -14,8 +14,8 @@ import java.util.*;
 import java.util.function.*;
 
 public enum Game {
-    Colossus("abbee4822d7385cfae791d7be1e55c83f3d6c9965023afb85482351519bbe890", ColossusReader::new),
-    DarkAges("4f425c098bcea6bd95d08c01801715e7df7ff9e81a1629952f36dfc8fb444bb3", DarkAgesReader::new),
+    Colossus("68e6c21a97c2a0824ff75961a771605dacbd73f17e33e8e7265741535a3818c3", ColossusReader::new),
+    DarkAges("40c750c04bbbff8b58219de4d78030d91af4a57fb1a965da8c629eea7c3b0024", DarkAgesReader::new),
     Doom("1bddecaa4e86850412f96e3117978bce1ec7bb701ae1b5a33120c21e4421e51e", DoomReader::new),
     DoomVk("3d8b4393649f80bdae85c19ae2c985c45ec9ac54f74ab04a18816e30ead63c21", DoomVkReader::new),
     Eternal("514af5872cec7d7e48f58099456f1404f1ca3102a76e8f93af4eaf5914b9b442", EternalReader::new),
