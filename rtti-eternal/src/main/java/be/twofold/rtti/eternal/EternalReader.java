@@ -26,8 +26,8 @@ public final class EternalReader implements RTTIReader {
 
     @Override
     public List<EnumTypeInfo> readEnums() {
-        var enums1 = new EnumReader(pe).read(0x143abe780L, 0x282);
-        var enums2 = new EnumReader(pe).read(0x144091140L, 0x5ce);
+        var enums1 = new EnumReader(pe).read(0x143AD00A0L, 0x282);
+        var enums2 = new EnumReader(pe).read(0x1440A32E0L, 0x5CD);
 
         var enums = new ArrayList<EnumTypeInfo>();
         enums.addAll(enums1);
@@ -37,8 +37,8 @@ public final class EternalReader implements RTTIReader {
 
     @Override
     public List<ClassTypeInfo> readClasses() {
-        var classes1 = new ClassReader(pe).read(0x143add800L, 0x0b3a);
-        var classes2 = new ClassReader(pe).read(0x1440a60f0L, 0x244b);
+        var classes1 = new ClassReader(pe).read(0x143AEE930L, 0x0B3A);
+        var classes2 = new ClassReader(pe).read(0x1440B74B0L, 0x244B);
 
         var classes = new ArrayList<ClassTypeInfo>();
         classes.addAll(classes1);
@@ -48,8 +48,8 @@ public final class EternalReader implements RTTIReader {
 
     @Override
     public List<TypedefInfo> readTypedefs() {
-        var typedefs1 = new TypedefReader(pe).read(0x143b10050L, 0x198);
-        var typedefs2 = new TypedefReader(pe).read(0x144149610L, 0x153);
+        var typedefs1 = new TypedefReader(pe).read(0x143B21180L, 0x198);
+        var typedefs2 = new TypedefReader(pe).read(0x14415A9D0L, 0x152);
 
         var typedefs = new ArrayList<TypedefInfo>();
         typedefs.addAll(typedefs1);
