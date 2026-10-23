@@ -28,8 +28,8 @@ public final class DarkAgesReader implements RTTIReader {
 
     @Override
     public List<EnumTypeInfo> readEnums() {
-        var enums1 = new EnumReader(pe).read(0x14398F600L, 0x37C);
-        var enums2 = new EnumReader(pe).read(0x143F21EE0L, 0x616);
+        var enums1 = new EnumReader(pe).read(0x143997E20L, 0x37C);
+        var enums2 = new EnumReader(pe).read(0x143EB0410L, 0x616);
 
         var enums = new ArrayList<EnumTypeInfo>();
         enums.addAll(enums1);
@@ -39,8 +39,8 @@ public final class DarkAgesReader implements RTTIReader {
 
     @Override
     public List<ClassTypeInfo> readClasses() {
-        var classes1 = new ClassReader(pe).read(0x1469A87A0L, 0x10B4);
-        var classes2 = new ClassReader(pe).read(0x1472E0AE0L, 0x428E);
+        var classes1 = new ClassReader(pe).read(0x1469B37A0L, 0x10B4);
+        var classes2 = new ClassReader(pe).read(0x1472EDAF0L, 0x429B);
 
         var classes = new ArrayList<ClassTypeInfo>();
         classes.addAll(classes1);
@@ -50,8 +50,8 @@ public final class DarkAgesReader implements RTTIReader {
 
     @Override
     public List<TypedefInfo> readTypedefs() {
-        var typedefs1 = new TypedefReader(pe).read(0x1439C1750L, 0x28B);
-        var typedefs2 = new TypedefReader(pe).read(0x143F92C30L, 0x6C1);
+        var typedefs1 = new TypedefReader(pe).read(0x1439C9F70L, 0x28B);
+        var typedefs2 = new TypedefReader(pe).read(0x143F9C620L, 0x6C1);
 
         var typedefs = new ArrayList<TypedefInfo>();
         typedefs.addAll(typedefs1);
