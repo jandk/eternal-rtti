@@ -19,6 +19,7 @@ public enum Game {
     Doom("1bddecaa4e86850412f96e3117978bce1ec7bb701ae1b5a33120c21e4421e51e", DoomReader::new),
     DoomVk("3d8b4393649f80bdae85c19ae2c985c45ec9ac54f74ab04a18816e30ead63c21", DoomVkReader::new),
     Eternal("69dc13e88d1c19133ead7950dc64ebcbd4a5a3f6bd6f9c336ebffe56df6a1c11", EternalReader::new),
+    EternalStudio("594ceb61adfd247d4339d54af6596479fabc2b3fb4dc80c8f8fe5121f3450323", EternalStudioReader::new),
     GreatCircle("68ef9be325743e304062728f667fdc6b3fba42243f9065a9a6b48b1b23418311", GreatCircleReader::new),
     NewOrder("9e413197e097ba41e85f0de47ddd3918f7656c432f8431f5f15e4b7eeb7c371c", NewOrderReader::new),
     Rage("54c80b45833679c62557a3f901aa36887f703729c28ba25acd1c9a1d606d7990", RageReader::new),
